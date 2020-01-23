@@ -14,6 +14,8 @@
  */
 /* eslint no-var: error */
 
+import { isNodeJS } from "./is_node.js";
+
 // Skip compatibility checks for modern builds and if we already ran the module.
 if (
   (typeof PDFJSDev === "undefined" || !PDFJSDev.test("SKIP_BABEL")) &&
@@ -27,7 +29,7 @@ if (
   }
   globalThis._pdfjsCompatibilityChecked = true;
 
-  const { isNodeJS } = require("./is_node.js");
+  
 
   const hasDOM = typeof window === "object" && typeof document === "object";
   const userAgent =
